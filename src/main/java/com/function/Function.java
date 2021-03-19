@@ -12,9 +12,7 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import java.time.*;
 import java.util.Optional;
 
-/**
- * Azure Functions with HTTP Trigger.
- */
+
 public class Function {
   
     @FunctionName("HttpExample")
