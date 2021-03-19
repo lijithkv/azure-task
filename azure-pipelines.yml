@@ -18,9 +18,20 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-2019
+  vmImage: windows
+
 
 steps:
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'azure-task-connection'
+    appType: 'functionApp'
+    appName: 'azure-task5'
+    deployToSlotOrASE: true
+    resourceGroupName: 'azuretask5'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
 - task: CopyFiles@2
   displayName: Copy Files
   inputs:
